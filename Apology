@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apology Card</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffe4e1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .envelope {
+      width: 220px;
+      height: 140px;
+      background-color: #ff8da1;
+      position: relative;
+      border-radius: 12px;
+      margin: auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+
+    .envelope::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 110px solid transparent;
+      border-right: 110px solid transparent;
+      border-top: 70px solid #ff6690;
+      border-radius: 12px;
+    }
+
+    .letter {
+      display: none;
+      opacity: 0;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 90%;
+      margin: 20px auto 0;
+      text-align: left;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: opacity 1.5s ease;
+    }
+
+    .letter.show {
+      display: block;
+      opacity: 1;
+    }
+
+    h1 { margin-top: 0; font-size: 24px; color: #ff3366; }
+    h2 { font-size: 16px; color: #666; }
+    h3 { font-size: 14px; margin-top: 10px; color: #444; }
+    p { line-height: 1.5; }
+
+    .letter button {
+      display: block;
+      margin: 20px auto;
+    }
+
+    .forgive {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .forgive button {
+      padding: 12px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff8da1;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+
+    .forgive button:hover { transform: scale(1.1); }
+
+    .final {
+      display: none;
+      font-size: 20px;
+      color: #ff3366;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="envelope" id="envelope" onclick="openLetter()"></div>
+
+    <div class="letter" id="letter">
+      <h1>Sorry bai </h1>
+      <h2>Special Apology Using Code </h2>
+      <p><i>
+        sowwy baii kabalo ko nanluod ka wla gyud ka ni adto sa tambayanan nato tas ganiha
+        kadto nag atang kos purtahan wla gyud ko nmo gi tagad ga huwat tako na mo lingi ka
+        HAAHAHAHAH sowwy baii kasii d akoo pumunta sa sinulog kapuyy man eyyy
+        sowwyyyy na UwU.
+      </i></p>
+      <h3>Pero kabalo nmn ko daan na mangluod gyyd ka HAHAHAHAHA mwah mwah chu chu</h3>
+      <button onclick="showForgive()">Next</button>
+    </div>
+
+    <div class="forgive" id="forgive">
+      <h2>SORRY BAI DID U FORGIVE ME?</h2>
+      <button onclick="showFinal()">YES </button>
+      <button onclick="showFinal()">YES </button>
+    </div>
+
+    <div class="final" id="final">
+      <h1>mwah mwah mwah SS nmn jan na imo gyud gi open hehehe waitinggggg</h1>
+    </div>
+  </div>
+
+  <script>
+    function openLetter() {
+      const envelope = document.getElementById("envelope");
+      const letter = document.getElementById("letter");
+      envelope.style.opacity = "0";
+      setTimeout(() => {
+        letter.style.display = "block";
+        letter.style.opacity = "1";
+      }, 500);
+    }
+
+    function showForgive() {
+      document.getElementById("letter").style.display = "none";
+      document.getElementById("forgive").style.display = "block";
+    }
+
+    function showFinal() {
+      document.getElementById("forgive").style.display = "none";
+      document.getElementById("final").style.display = "block";
+    }
+  </script>
+</body>
+</html>
