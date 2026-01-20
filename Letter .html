@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apology Card</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffe4e1; /* soft pink */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      padding: 10px;
+    }
+
+    /* Envelope */
+    .envelope {
+      width: 220px;
+      height: 140px;
+      background-color: #ff8da1;
+      position: relative;
+      cursor: pointer;
+      border-radius: 12px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+
+    .envelope:hover {
+      transform: scale(1.05);
+    }
+
+    .envelope::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 110px solid transparent;
+      border-right: 110px solid transparent;
+      border-top: 70px solid #ff6690;
+      border-radius: 12px;
+    }
+
+    /* Letter */
+    .letter {
+      display: none;
+      opacity: 0;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 90%;
+      margin: 20px auto 0;
+      text-align: left;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: opacity 1.5s ease; /* dahan-dahan fade-in */
+    }
+
+    .letter.show {
+      display: block;
+      opacity: 1;
+    }
+
+    h1 { margin-top: 0; font-size: 24px; color: #ff3366; }
+    h2 { font-size: 16px; color: #666; }
+    h3 { font-size: 14px; margin-top: 10px; color: #444; }
+    p { line-height: 1.5; }
+
+    /* Forgive question */
+    .forgive {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .forgive button {
+      padding: 12px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff8da1;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+
+    .forgive button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Final message */
+    .final {
+      display: none;
+      font-size: 20px;
+      color: #ff3366;
+      margin-top: 20px;
+    }
+  /* Center the Next button inside the letter */
+.letter button {
+  display: block;
+  margin: 20px auto; /* vertical 20px, horizontal auto = centered */
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    
+    <div class="envelope" onclick="openLetter()">Touch here bai</div>
+
+   
+    <div class="letter" id="letter">
+      <h1>SPECIAL APOLOGY LETTER</h1>
+      <h2>Sana iyong basahin at tapusin</h2>
+      <p><i>
+        sowwy baii kabalo ko nanluod ka wla gyud ka ni adto sa tambayanan nato tas ganiha
+        kadto nag atang kos purtahan wla gyud ko nmo gi tagad ga huwat tako na mo lingi ka
+        HAAHAHAHAH sowwy baii kasii d akoo pumunta sa sinulog kapuyy man eyyy
+        sowwyyyy na UwU.
+      </i></p>
+      <h3>Pero kabalo nmn ko daan na mangluod gyyd ka HAHAHAHAHA mwah mwah chu chu</h3>
+      <button onclick="showForgive()">Next </button>
+    </div>
+
+    
+    <div class="forgive" id="forgive">
+      <h2>SORRY BAI  DID U FORGIVE ME?</h2>
+      <button onclick="showFinal()">YES </button>
+      <button onclick="showFinal()">YES </button>
+    </div>
+
+   
+    <div class="final" id="final">
+      <h1>Mwah mwah ka sa akin SS nmn jan kong gi open gyud nmo waitingg </h1>
+    </div>
+  </div>
+
+  <script>
+    function openLetter() {
+      const letter = document.getElementById("letter");
+      letter.style.display = "block";
+      setTimeout(() => {
+        letter.classList.add("show"); // dahan-dahan fade in
+      }, 50);
+
+      // hide envelope
+      document.querySelector(".envelope").style.display = "none";
+    }
+
+    function showForgive() {
+      document.getElementById("letter").style.display = "none";
+      document.getElementById("forgive").style.display = "block";
+    }
+
+    function showFinal() {
+      document.getElementById("forgive").style.display = "none";
+      document.getElementById("final").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
